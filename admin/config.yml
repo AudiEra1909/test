@@ -1,0 +1,34 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "strona"
+    label: "Strona"
+    files:
+      - file: "content/strona.yml"
+        label: "Treść strony"
+        name: "strona"
+        fields:
+          - label: "Nazwa firmy"
+            name: "nazwa"
+            widget: "string"
+
+          - label: "Nagłówek"
+            name: "naglowek"
+            widget: "string"
+
+          - label: "Opis"
+            name: "opis"
+            widget: "text"
+
+          - label: "Telefon"
+            name: "telefon"
+            widget: "string"
+
+          - label: "E-mail"
+            name: "email"
+            widget: "string"
