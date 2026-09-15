@@ -446,7 +446,10 @@
     <p class="section-intro">Masz pytanie o konkretny model, silnik albo skrzynię biegów? Zostaw wiadomość wraz ze swoim adresem e-mail — odpiszemy najszybciej, jak to możliwe na audiera1909@gmail.com.</p>
   </div>
 
-  <form class="contact-form" id="contactForm" action="mailto:audiera1909@gmail.com" method="post" enctype="text/plain">
+  <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value="4ce773b6-7ef8-49e3-a490-c2ebb165dcd7">
+  <input type="hidden" name="subject" value="Nowa wiadomość z formularza AudiEra">
+  <input type="checkbox" name="botcheck" style="display:none">
     <div class="field">
       <label for="name">Imię i nazwisko</label>
       <input type="text" id="name" name="Imię i nazwisko" required placeholder="Jan Kowalski">
@@ -462,7 +465,7 @@
     <div class="field field-full">
       <label for="message">Wiadomość</label>
       <textarea id="message" name="Wiadomość" rows="6" required placeholder="Opisz, czego dotyczy Twoje zapytanie..."></textarea>
-    </div>
+    <p class="form-note">Wiadomość zostanie wysłana bezpośrednio na audiera1909@gmail.com.</p></div>
     <div class="field field-full field-submit">
       <button type="submit" class="btn btn-primary">Wyślij wiadomość</button>
       <p class="form-note">Wiadomość zostanie otwarta w Twoim programie pocztowym i wysłana bezpośrednio na audiera1909@gmail.com.</p>
