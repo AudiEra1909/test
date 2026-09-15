@@ -17,11 +17,13 @@ document.addEventListener('DOMContentLoaded', function () {
   burger.addEventListener('click', function () {
     var isOpen = nav.classList.toggle('open');
     burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('nav-open', isOpen);
   });
   nav.querySelectorAll('a').forEach(function (link) {
     link.addEventListener('click', function () {
       nav.classList.remove('open');
       burger.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
     });
   });
 
