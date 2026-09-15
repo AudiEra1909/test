@@ -50,6 +50,43 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') closeLightbox();
+      // Wysyłka formularza kontaktowego przez Web3Forms (bez przeładowania strony)
+  var contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var submitBtn = contactForm.querySelector('button[type="submit"]');
+      var originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wysyłanie...';
+
+      var formData = new FormData(contactForm);
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: formData
+      })
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (data.success) {
+            submitBtn.textContent = 'Wysłano ✓';
+            contactForm.reset();
+          } else {
+            submitBtn.textContent = 'Błąd — spróbuj ponownie';
+          }
+        })
+        .catch(function () {
+          submitBtn.textContent = 'Błąd — spróbuj ponownie';
+        })
+        .finally(function () {
+          setTimeout(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }, 3000);
+        });
+    });
+  }
   });
 });
   // Wysyłka formularza kontaktowego przez Web3Forms (bez przeładowania strony)
